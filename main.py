@@ -6,6 +6,8 @@ import warnings
 
 warnings.filterwarnings("ignore", category=UserWarning)
 
+from routes.einwand import router as einwand_router
+
 # Configure Sentry
 sentry_sdk.init(
     dsn="https://12e57a7f1b5254337bf92ed44434fcfa@o81097.ingest.us.sentry.io/4508164901634048",
@@ -35,7 +37,7 @@ def home():
     return {"message": "Hello from FastAPI on Render!"}
 
 # Include all routers
-app.include_router(einwand.router)
+app.include_router(einwand_router)
 
 @app.get("/")
 def home():
